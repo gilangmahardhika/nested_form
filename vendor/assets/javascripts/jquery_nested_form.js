@@ -53,10 +53,18 @@
       field
         .trigger({ type: 'nested:fieldAdded', field: field })
         .trigger({ type: 'nested:fieldAdded:' + assoc, field: field });
+
+      // ReInitialize Chosen
       $(".chosen").each(function () {
           $(this).chosen({
               allow_single_deselect: $(this).attr("data-with-deselect") == "1" ? true : false
           });
+      });
+      // ReInitialize DatePicker
+      $(".date-picker").each(function () {
+        $(this).datepicker({
+          rtl : App.isRTL()
+        });
       });
       return false;
     },
