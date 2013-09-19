@@ -85,8 +85,12 @@
 
   window.nestedFormEvents = new NestedFormEvents();
   $(document)
-    .delegate('form a.add_nested_fields',    'click', nestedFormEvents.addFields)
-    .delegate('form a.remove_nested_fields', 'click', nestedFormEvents.removeFields);
+    // New On
+    .on('click', 'form a.add_nested_fields', nestedFormEvents.addFields)
+    .on('click', 'form a.remove_nested_fields', nestedFormEvents.removeFields);
+    // Old Delegate
+    // .delegate('form a.add_nested_fields',    'click', nestedFormEvents.addFields)
+    // .delegate('form a.remove_nested_fields', 'click', nestedFormEvents.removeFields);
 })(jQuery);
 
 // http://plugins.jquery.com/project/closestChild
